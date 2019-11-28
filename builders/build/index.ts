@@ -26,7 +26,9 @@ export const execute = (options: DevServerBuilderOptions, context: BuilderContex
     buildOptions.port = options.port ? options.port : 4200;
     buildOptions.watch = true;
     buildOptions.baseHref = "./";
-
+    buildOptions.fileReplacements = options.fileReplacements ? options.fileReplacements : buildOptions.fileReplacements;
+		buildOptions.outputPath = options.outputPath ? options.outputPath : buildOptions.outputPath;
+			
     compile([options.electronMain as string], {
       noEmitOnError: true,
       noImplicitAny: true,

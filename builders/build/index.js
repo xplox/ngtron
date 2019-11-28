@@ -32,7 +32,9 @@ exports.execute = (options, context) => {
             buildOptions.port = options.port ? options.port : 4200;
             buildOptions.watch = true;
             buildOptions.baseHref = "./";
-            util_1.compile([options.electronMain], {
+			buildOptions.fileReplacements = options.fileReplacements ? options.fileReplacements : buildOptions.fileReplacements;
+			buildOptions.outputPath = options.outputPath ? options.outputPath : buildOptions.outputPath;
+			util_1.compile([options.electronMain], {
                 noEmitOnError: true,
                 noImplicitAny: true,
                 target: ts.ScriptTarget.ES2015,
@@ -47,7 +49,8 @@ exports.execute = (options, context) => {
             fs_1.copyFileSync(fromMain, toMain);
             // write electron package to dist
             fs_1.writeFileSync(path_1.join(outputPath, "package.json"), JSON.stringify(buildElectronOptions.electronPackage), { encoding: "utf-8" });
-            return {
+						
+			return {
                 buildOptions: buildOptions,
                 buildElectronOptions: buildElectronOptions
             };

@@ -16,52 +16,8 @@
     "electronMain": {
       "type": "string",
       "description": "The port to use to serve the application."
-    },
-    "fileReplacements": {
-      "description": "Replace files with other files in the build.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/fileReplacement"
-      },
-      "default": []
-    },
-    "outputPath": {
-      "type": "string",
-      "description": "The full path for the new output directory, relative to the current workspace.\n\nBy default, writes output to a folder named dist/ in the current project."
     }
-  },
-  "definitions": {
-    "fileReplacement": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "src": {
-              "type": "string"
-            },
-            "replaceWith": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false,
-          "required": ["src", "replaceWith"]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "replace": {
-              "type": "string"
-            },
-            "with": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false,
-          "required": ["replace", "with"]
-        }
-      ]
-    }
-  },
+  }
   "additionalProperties": false,
   "required": ["browserTarget"]
 }

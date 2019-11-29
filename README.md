@@ -13,27 +13,23 @@ Ngtron will setup your angular workspace with the finest electron tools availabl
 
 
 [![npm version](https://badge.fury.io/js/%40richapps%2Fngtron.svg)](https://www.npmjs.com/@richapps/ngtron)
-## Installation
-```bash
-ng add @richapps/ngtron
-```
 
 ## Usage
 
 ### Run app while developing (with hot reloading)
 ```bash
-ng run project:build-electron
+ng run <project>:build-electron -c <custom-configuration>
 ```
 Builds the app and opens it in an electron window. Uses hot reloading whenever your code changes.
 ### Package your app
 ```bash
-ng run project:package-electron
+ng run <project>:package-electron -c <custom-configuration>
 ```
 You can customize your build settings in the angular.json.
 There you will find all the settings which you can use in electron-builder.
 
 ### Serve app in the browser
-`ng run project:serve-electron`
+`ng run <project>:serve-electron`
 This will serve your app in the browser even if you use node or electron apis. 
 Example will follow.
 

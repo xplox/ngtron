@@ -26,14 +26,13 @@ exports.execute = (options, context) => {
             serverOptions = yield context.getTargetOptions(browserTarget);
             const buildOptions = yield context.getTargetOptions({
                 project: context.target.project,
+                configuration: context.target.configuration,
                 target: "build"
             });
             buildOptions.browserTarget = context.target.project + ":build";
             buildOptions.port = options.port ? options.port : 4200;
             buildOptions.watch = true;
             buildOptions.baseHref = "./";
-			buildOptions.fileReplacements = options.fileReplacements ? options.fileReplacements : buildOptions.fileReplacements;
-			buildOptions.outputPath = options.outputPath ? options.outputPath : buildOptions.outputPath;
 			util_1.compile([options.electronMain], {
                 noEmitOnError: true,
                 noImplicitAny: true,

@@ -25,6 +25,7 @@ exports.execute = (options, context) => {
             serverOptions = yield context.getTargetOptions(browserTarget);
             const buildOptions = yield context.getTargetOptions({
                 project: context.target.project,
+                configuration: context.target.configuration,
                 target: "build"
             });
             buildOptions.browserTarget = context.target.project + ":package-electron";

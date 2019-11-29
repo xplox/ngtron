@@ -20,14 +20,13 @@ export const execute = (options: DevServerBuilderOptions, context: BuilderContex
     serverOptions = await context.getTargetOptions(browserTarget);
     const buildOptions = await context.getTargetOptions({
       project: context.target.project,
+      configuration: context.target.configuration,
       target: "build"
     });
     buildOptions.browserTarget = context.target.project + ":build";
     buildOptions.port = options.port ? options.port : 4200;
     buildOptions.watch = true;
     buildOptions.baseHref = "./";
-    buildOptions.fileReplacements = options.fileReplacements ? options.fileReplacements : buildOptions.fileReplacements;
-		buildOptions.outputPath = options.outputPath ? options.outputPath : buildOptions.outputPath;
 			
     compile([options.electronMain as string], {
       noEmitOnError: true,
